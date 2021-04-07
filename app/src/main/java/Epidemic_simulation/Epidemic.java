@@ -18,7 +18,9 @@ public class Epidemic {
 
     private int stageNumber = 0;
 
-    public void nextStage(){ stageNumber++; }
+    public void nextStage(){
+        stageNumber++;
+    }
 
     public void saveStats(){}
 }

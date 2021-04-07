@@ -9,13 +9,13 @@ public class Human extends SimulationObject{
         this.moveRange = moveRange;
     }
 
-    private Random random = new Random();
+    private final Random random = new Random();
 
-    private int mapSize;
-
-    public void Move(){}
+    private final int mapSize;
 
     private final int moveRange;
+
+    public void Move(){}
 
     public int getMapSize() {
         return mapSize;
