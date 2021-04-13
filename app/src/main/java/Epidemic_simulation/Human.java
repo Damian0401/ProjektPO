@@ -3,23 +3,18 @@ package Epidemic_simulation;
 import java.util.Random;
 
 public class Human extends SimulationObject{
-    public Human(int x, int y, int mapSize, int moveRange){
+    public Human(int x, int y, int mapHeight, int mapWidth, int moveRange){
         super(x, y);
-        this.mapSize = mapSize;
+        this.mapHeight = mapHeight;
+        this.mapWidth = mapWidth;
         this.moveRange = moveRange;
     }
 
-    private final int mapSize;
+    private final int mapHeight;
+
+    private final int mapWidth;
 
     private final int moveRange;
 
     public void Move(){}
-
-    public int getMapSize() {
-        return mapSize;
-    }
-
-    public int getMoveRange() {
-        return moveRange;
-    }
 }

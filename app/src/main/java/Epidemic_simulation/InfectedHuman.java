@@ -1,11 +1,9 @@
 package Epidemic_simulation;
 
-import java.util.Random;
-
 public class InfectedHuman extends Human{
 
-    public InfectedHuman(int x, int y, int mapSize, int infectChance) {
-        super(x, y, mapSize, 1);
+    public InfectedHuman(int x, int y, int mapHeight, int mapWidth, int infectChance) {
+        super(x, y, mapHeight, mapWidth, 1);
         this.infectChance = infectChance;
     }
 

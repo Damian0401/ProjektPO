@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Epidemic {
-    public Epidemic(int mapSize, int infectChance, int recoveryChance, int healthyNumber,
+    public Epidemic(int mapHeight, int mapWidth, int infectChance, int recoveryChance, int healthyNumber,
                     int infectedNumber, int medicalNumber, int cureNumber){
     }
 
@@ -18,9 +18,15 @@ public class Epidemic {
 
     private int stageNumber = 0;
 
+    private final int mapHeight = 0;
+
+    private final int mapWidth = 0;
+
     public void nextStage(){
         stageNumber++;
     }
 
     public void saveStats(){}
+
+    public void showMap(){}
 }
