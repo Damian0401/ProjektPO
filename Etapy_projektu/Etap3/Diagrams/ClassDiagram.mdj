@@ -305,7 +305,7 @@
 											"top": 1045,
 											"width": 271,
 											"height": 13,
-											"text": "+showMap(): void",
+											"text": "+drawMap(): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -5596,7 +5596,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF4eXhedWVyX8E="
 							},
-							"name": "showMap",
+							"name": "drawMap",
 							"parameters": [
 								{
 									"_type": "UMLParameter",

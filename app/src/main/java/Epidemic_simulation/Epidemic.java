@@ -28,5 +28,5 @@ public class Epidemic {
 
     public void saveStats(){}
 
-    public void showMap(){}
+    public void drawMap(){}
 }

@@ -10,6 +10,7 @@ public class Human extends SimulationObject{
         this.moveRange = moveRange;
     }
 
+
     private final int mapHeight;
 
     private final int mapWidth;
