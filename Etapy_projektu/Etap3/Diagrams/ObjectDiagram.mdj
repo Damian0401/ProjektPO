@@ -256,7 +256,7 @@
 											"top": 216,
 											"width": 278,
 											"height": 13,
-											"text": "-cureList",
+											"text": "-cureList = 2",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2764,30 +2764,13 @@
 											"height": 13,
 											"text": "-recoveryChance = 60",
 											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLSlotView",
-											"_id": "AAAAAAF40agf0EOm1Yk=",
-											"_parent": {
-												"$ref": "AAAAAAF40ad5eUNNZsU="
-											},
-											"model": {
-												"$ref": "AAAAAAF40agfyUOjuHc="
-											},
-											"font": "Arial;13;0",
-											"left": 1389,
-											"top": 483,
-											"width": 214,
-											"height": 13,
-											"text": "-amount = 2",
-											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 1384,
 									"top": 433,
 									"width": 224,
-									"height": 68
+									"height": 53
 								}
 							],
 							"font": "Arial;13;0",
@@ -2949,30 +2932,13 @@
 											"height": 13,
 											"text": "-recoveryChance = 60",
 											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLSlotView",
-											"_id": "AAAAAAF40agkwUOsoQ0=",
-											"_parent": {
-												"$ref": "AAAAAAF40aeL40Nq4YI="
-											},
-											"model": {
-												"$ref": "AAAAAAF40agkuUOpn54="
-											},
-											"font": "Arial;13;0",
-											"left": 1389,
-											"top": 603,
-											"width": 214,
-											"height": 13,
-											"text": "-amount = 2",
-											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 1384,
 									"top": 553,
 									"width": 224,
-									"height": 68
+									"height": 53
 								}
 							],
 							"font": "Arial;13;0",
@@ -4030,6 +3996,7 @@
 							},
 							"name": "mapHeight",
 							"visibility": "private",
+							"type": "",
 							"value": "40"
 						},
 						{
@@ -4040,6 +4007,7 @@
 							},
 							"name": "mapWidth",
 							"visibility": "private",
+							"type": "",
 							"value": "80"
 						},
 						{
@@ -4050,6 +4018,7 @@
 							},
 							"name": "stageNumber",
 							"visibility": "private",
+							"type": "",
 							"value": "1"
 						},
 						{
@@ -4060,6 +4029,7 @@
 							},
 							"name": "infectedHumanList",
 							"visibility": "private",
+							"type": "",
 							"value": "3"
 						},
 						{
@@ -4070,6 +4040,7 @@
 							},
 							"name": "medicalHumanList",
 							"visibility": "private",
+							"type": "",
 							"value": "1"
 						},
 						{
@@ -4080,6 +4051,7 @@
 							},
 							"name": "healthyHumanList",
 							"visibility": "private",
+							"type": "",
 							"value": "5"
 						},
 						{
@@ -4089,7 +4061,8 @@
 								"$ref": "AAAAAAF40YthjT/ep/Q="
 							},
 							"name": "cureList",
-							"visibility": "private"
+							"visibility": "private",
+							"value": "2"
 						}
 					]
 				},
@@ -4148,6 +4121,7 @@
 							},
 							"name": "moveRange",
 							"visibility": "private",
+							"type": "",
 							"value": "1"
 						},
 						{
@@ -4158,6 +4132,7 @@
 							},
 							"name": "mapHeight",
 							"visibility": "private",
+							"type": "",
 							"value": "40"
 						},
 						{
@@ -4168,6 +4143,7 @@
 							},
 							"name": "mapWidth",
 							"visibility": "private",
+							"type": "",
 							"value": "80"
 						},
 						{
@@ -4178,6 +4154,7 @@
 							},
 							"name": "infectChance",
 							"visibility": "private",
+							"type": "",
 							"value": "50"
 						},
 						{
@@ -4188,6 +4165,7 @@
 							},
 							"name": "xPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "5"
 						},
 						{
@@ -4198,6 +4176,7 @@
 							},
 							"name": "yPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "13"
 						}
 					]
@@ -4219,6 +4198,7 @@
 							},
 							"name": "moveRange",
 							"visibility": "private",
+							"type": "",
 							"value": "1"
 						},
 						{
@@ -4229,6 +4209,7 @@
 							},
 							"name": "mapHeigth",
 							"visibility": "private",
+							"type": "",
 							"value": "40"
 						},
 						{
@@ -4239,6 +4220,7 @@
 							},
 							"name": "mapWidth",
 							"visibility": "private",
+							"type": "",
 							"value": "80"
 						},
 						{
@@ -4249,6 +4231,7 @@
 							},
 							"name": "infectChance",
 							"visibility": "private",
+							"type": "",
 							"value": "50"
 						},
 						{
@@ -4259,6 +4242,7 @@
 							},
 							"name": "xPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "12"
 						},
 						{
@@ -4269,6 +4253,7 @@
 							},
 							"name": "yPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "25"
 						}
 					]
@@ -4290,6 +4275,7 @@
 							},
 							"name": "moveRange",
 							"visibility": "private",
+							"type": "",
 							"value": "1"
 						},
 						{
@@ -4300,6 +4286,7 @@
 							},
 							"name": "mapHeigth",
 							"visibility": "private",
+							"type": "",
 							"value": "40"
 						},
 						{
@@ -4310,6 +4297,7 @@
 							},
 							"name": "mapWidth",
 							"visibility": "private",
+							"type": "",
 							"value": "80"
 						},
 						{
@@ -4320,6 +4308,7 @@
 							},
 							"name": "infectChance",
 							"visibility": "private",
+							"type": "",
 							"value": "50"
 						},
 						{
@@ -4330,6 +4319,7 @@
 							},
 							"name": "xPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "62"
 						},
 						{
@@ -4340,6 +4330,7 @@
 							},
 							"name": "yPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "31"
 						}
 					]
@@ -4370,6 +4361,7 @@
 							},
 							"name": "moveRange",
 							"visibility": "private",
+							"type": "",
 							"value": "2"
 						},
 						{
@@ -4380,6 +4372,7 @@
 							},
 							"name": "mapHeight",
 							"visibility": "private",
+							"type": "",
 							"value": "40"
 						},
 						{
@@ -4390,6 +4383,7 @@
 							},
 							"name": "mapWidth",
 							"visibility": "private",
+							"type": "",
 							"value": "80"
 						},
 						{
@@ -4400,6 +4394,7 @@
 							},
 							"name": "xPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "58"
 						},
 						{
@@ -4410,6 +4405,7 @@
 							},
 							"name": "yPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "19"
 						}
 					]
@@ -4440,6 +4436,7 @@
 							},
 							"name": "moveRange",
 							"visibility": "private",
+							"type": "",
 							"value": "3"
 						},
 						{
@@ -4450,6 +4447,7 @@
 							},
 							"name": "mapHeight",
 							"visibility": "private",
+							"type": "",
 							"value": "40"
 						},
 						{
@@ -4460,6 +4458,7 @@
 							},
 							"name": "mapWidth",
 							"visibility": "private",
+							"type": "",
 							"value": "80"
 						},
 						{
@@ -4470,6 +4469,7 @@
 							},
 							"name": "xPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "71"
 						},
 						{
@@ -4480,6 +4480,7 @@
 							},
 							"name": "yPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "36"
 						}
 					]
@@ -4501,6 +4502,7 @@
 							},
 							"name": "moveRange",
 							"visibility": "private",
+							"type": "",
 							"value": "3"
 						},
 						{
@@ -4511,6 +4513,7 @@
 							},
 							"name": "mapHeight",
 							"visibility": "private",
+							"type": "",
 							"value": "40"
 						},
 						{
@@ -4521,6 +4524,7 @@
 							},
 							"name": "mapWidth",
 							"visibility": "private",
+							"type": "",
 							"value": "80"
 						},
 						{
@@ -4531,6 +4535,7 @@
 							},
 							"name": "xPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "47"
 						},
 						{
@@ -4541,6 +4546,7 @@
 							},
 							"name": "yPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "22"
 						}
 					]
@@ -4562,6 +4568,7 @@
 							},
 							"name": "moveRange",
 							"visibility": "private",
+							"type": "",
 							"value": "3"
 						},
 						{
@@ -4572,6 +4579,7 @@
 							},
 							"name": "mapHeight",
 							"visibility": "private",
+							"type": "",
 							"value": "40"
 						},
 						{
@@ -4582,6 +4590,7 @@
 							},
 							"name": "mapWidth",
 							"visibility": "private",
+							"type": "",
 							"value": "80"
 						},
 						{
@@ -4592,6 +4601,7 @@
 							},
 							"name": "xPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "41"
 						},
 						{
@@ -4602,6 +4612,7 @@
 							},
 							"name": "yPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "6"
 						}
 					]
@@ -4623,6 +4634,7 @@
 							},
 							"name": "moveRange",
 							"visibility": "private",
+							"type": "",
 							"value": "3"
 						},
 						{
@@ -4633,6 +4645,7 @@
 							},
 							"name": "mapHeight",
 							"visibility": "private",
+							"type": "",
 							"value": "40"
 						},
 						{
@@ -4643,6 +4656,7 @@
 							},
 							"name": "mapWidth",
 							"visibility": "private",
+							"type": "",
 							"value": "80"
 						},
 						{
@@ -4653,6 +4667,7 @@
 							},
 							"name": "xPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "29"
 						},
 						{
@@ -4663,6 +4678,7 @@
 							},
 							"name": "yPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "11"
 						}
 					]
@@ -4684,6 +4700,7 @@
 							},
 							"name": "moveRange",
 							"visibility": "private",
+							"type": "",
 							"value": "3"
 						},
 						{
@@ -4694,6 +4711,7 @@
 							},
 							"name": "mapHeight",
 							"visibility": "private",
+							"type": "",
 							"value": "40"
 						},
 						{
@@ -4704,6 +4722,7 @@
 							},
 							"name": "mapWidth",
 							"visibility": "private",
+							"type": "",
 							"value": "80"
 						},
 						{
@@ -4714,6 +4733,7 @@
 							},
 							"name": "xPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "38"
 						},
 						{
@@ -4724,6 +4744,7 @@
 							},
 							"name": "yPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "3"
 						}
 					]
@@ -4754,6 +4775,7 @@
 							},
 							"name": "xPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "36"
 						},
 						{
@@ -4764,6 +4786,7 @@
 							},
 							"name": "yPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "33"
 						},
 						{
@@ -4774,17 +4797,8 @@
 							},
 							"name": "recoveryChance",
 							"visibility": "private",
+							"type": "",
 							"value": "60"
-						},
-						{
-							"_type": "UMLSlot",
-							"_id": "AAAAAAF40agfyUOjuHc=",
-							"_parent": {
-								"$ref": "AAAAAAF40ad5eUNFLfI="
-							},
-							"name": "amount",
-							"visibility": "private",
-							"value": "2"
 						}
 					]
 				},
@@ -4805,6 +4819,7 @@
 							},
 							"name": "xPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "12"
 						},
 						{
@@ -4815,6 +4830,7 @@
 							},
 							"name": "yPosition",
 							"visibility": "private",
+							"type": "",
 							"value": "26"
 						},
 						{
@@ -4825,17 +4841,8 @@
 							},
 							"name": "recoveryChance",
 							"visibility": "private",
+							"type": "",
 							"value": "60"
-						},
-						{
-							"_type": "UMLSlot",
-							"_id": "AAAAAAF40agkuUOpn54=",
-							"_parent": {
-								"$ref": "AAAAAAF40aeL4kNiPBY="
-							},
-							"name": "amount",
-							"visibility": "private",
-							"value": "2"
 						}
 					]
 				}
