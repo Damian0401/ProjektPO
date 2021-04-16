@@ -5,25 +5,6 @@
 	"ownedElements": [
 		{
 			"_type": "UMLModel",
-			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
-			"_parent": {
-				"$ref": "AAAAAAFF+h6SjaM2Hec="
-			},
-			"name": "Model",
-			"ownedElements": [
-				{
-					"_type": "UMLClassDiagram",
-					"_id": "AAAAAAFF+qBtyKM79qY=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Main",
-					"defaultDiagram": true
-				}
-			]
-		},
-		{
-			"_type": "UMLModel",
 			"_id": "AAAAAAF40YMCdz/ZbvU=",
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
@@ -1417,7 +1398,7 @@
 											"width": 591,
 											"height": 13,
 											"underline": true,
-											"text": "healthyHumanList: ArrayList<HealthylHuman>"
+											"text": "healthyHumanList: ArrayList<HealthyHuman>"
 										},
 										{
 											"_type": "LabelView",
@@ -2544,7 +2525,7 @@
 											"width": 295,
 											"height": 13,
 											"underline": true,
-											"text": "cureHumanList: ArrayList<CureHuman>"
+											"text": "cureList: ArrayList<Cure>"
 										},
 										{
 											"_type": "LabelView",
@@ -4062,6 +4043,7 @@
 							},
 							"name": "cureList",
 							"visibility": "private",
+							"type": "",
 							"value": "2"
 						}
 					]
@@ -4417,7 +4399,7 @@
 						"$ref": "AAAAAAF40YMCdz/ZbvU="
 					},
 					"name": "healthyHumanList",
-					"classifier": "ArrayList<HealthylHuman>"
+					"classifier": "ArrayList<HealthyHuman>"
 				},
 				{
 					"_type": "UMLObject",
@@ -4755,8 +4737,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF40YMCdz/ZbvU="
 					},
-					"name": "cureHumanList",
-					"classifier": "ArrayList<CureHuman>"
+					"name": "cureList",
+					"classifier": "ArrayList<Cure>"
 				},
 				{
 					"_type": "UMLObject",
