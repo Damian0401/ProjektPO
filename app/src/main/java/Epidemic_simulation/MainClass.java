@@ -3,7 +3,7 @@ package Epidemic_simulation;
 public class MainClass{
     public static void main(String[] args) {
 
-        simulation(5,5,5,5,5,5,5,5,5);
+        System.out.println("Hello World!");
 
     }
 
