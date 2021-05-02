@@ -6,6 +6,9 @@ import java.util.List;
 public class Epidemic {
     public Epidemic(int mapHeight, int mapWidth, int infectChance, int recoveryChance, int healthyNumber,
                     int infectedNumber, int medicalNumber, int cureNumber){
+        for(int i = 0; i < infectedNumber; i++){
+            infectedHumanList.add(new InfectedHuman(RandomGenerator.getPosition(mapWidth),RandomGenerator.getPosition(mapHeight),mapHeight,mapWidth,infectChance));
+        }
     }
 
     private final List<Cure> cureList = new ArrayList<>();

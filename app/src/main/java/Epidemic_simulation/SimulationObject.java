@@ -1,6 +1,6 @@
 package Epidemic_simulation;
 
-public class SimulationObject {
+public abstract class SimulationObject {
     private int xPosition;
     private int yPosition;
 

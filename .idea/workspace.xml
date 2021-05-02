@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d2de52f6-a718-4dee-8cb9-d6f11c8035b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/Epidemic_simulation/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Epidemic_simulation/MainClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/Epidemic_simulation/Epidemic.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Epidemic_simulation/Epidemic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/Epidemic_simulation/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Epidemic_simulation/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/Epidemic_simulation/SimulationObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Epidemic_simulation/SimulationObject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
