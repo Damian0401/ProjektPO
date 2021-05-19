@@ -1,8 +1,8 @@
 package Epidemic_simulation;
 
-public class HealthyHuman extends Human{
-    public HealthyHuman(int x, int y, int mapHeight, int mapWidth) {
-        super(x, y, mapHeight, mapWidth, 3);
+public class HealthyHuman extends SimulationObject{
+    public HealthyHuman(int x, int y) {
+        super(x, y);
     }
 
     public boolean isInfected(InfectedHuman infectedHuman){ return true; }

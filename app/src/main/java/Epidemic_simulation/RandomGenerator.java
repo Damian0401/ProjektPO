@@ -9,7 +9,7 @@ public class RandomGenerator{
     private RandomGenerator() {}
 
     public static int getMove(int range){
-        return 0;
+        return random.nextInt(2*range) - range;
     }
 
     public static int getChance(){

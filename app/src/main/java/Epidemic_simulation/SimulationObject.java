@@ -1,5 +1,7 @@
 package Epidemic_simulation;
 
+import java.util.Objects;
+
 public abstract class SimulationObject {
     private int xPosition;
     private int yPosition;
@@ -23,5 +25,23 @@ public abstract class SimulationObject {
 
     public void setYPosition(int yPosition) {
         this.yPosition = yPosition;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return false;
+        if (!(o instanceof SimulationObject)) return false;
+        SimulationObject that = (SimulationObject) o;
+        return xPosition == that.xPosition && yPosition == that.yPosition;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(xPosition, yPosition);
+    }
+
+    @Override
+    public String toString() {
+        return "(" + xPosition + ", " + yPosition + ")";
     }
 }

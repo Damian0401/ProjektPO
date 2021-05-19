@@ -1,9 +1,9 @@
 package Epidemic_simulation;
 
-public class InfectedHuman extends Human{
+public class InfectedHuman extends SimulationObject{
 
-    public InfectedHuman(int x, int y, int mapHeight, int mapWidth, int infectChance) {
-        super(x, y, mapHeight, mapWidth, 1);
+    public InfectedHuman(int x, int y, int infectChance) {
+        super(x, y);
         this.infectChance = infectChance;
     }
 
