@@ -9,15 +9,14 @@ public class RandomGenerator{
     private RandomGenerator() {}
 
     public static int getMove(int range){
-        return random.nextInt(2*range) - range;
+        return random.nextInt(2 * range + 1) - range;
     }
 
     public static int getChance(){
-        return 0;
+        return random.nextInt(101);
     }
 
     public static int getPosition(int range){
-        return 0;
+        return random.nextInt(range);
     }
-
 }

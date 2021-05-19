@@ -5,5 +5,7 @@ public class MedicalHuman extends SimulationObject{
         super(x, y);
     }
 
-    public boolean cure(InfectedHuman infectedHuman){ return true; }
+    public boolean cure(InfectedHuman infectedHuman){
+        return Math.abs(infectedHuman.getXPosition() - this.getXPosition()) < 2 && Math.abs(infectedHuman.getYPosition() - this.getYPosition()) < 2 ;
+    }
 }

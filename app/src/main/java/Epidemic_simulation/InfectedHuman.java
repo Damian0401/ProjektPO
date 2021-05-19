@@ -8,7 +8,9 @@ public class InfectedHuman extends SimulationObject{
     }
 
     public boolean isCured(Cure cure){
-        return true;
+        if(Math.abs(cure.getXPosition() - this.getXPosition()) > 2 || Math.abs(cure.getYPosition() - this.getYPosition()) > 2 ) return false;
+
+        return cure.getRecoveryChance()>=RandomGenerator.getChance();
     }
 
     private final int infectChance;
