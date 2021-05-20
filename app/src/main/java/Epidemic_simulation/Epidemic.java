@@ -9,7 +9,11 @@ import java.util.List;
 /**
  * Główna klasa odpowiadająca za przebieg symulacji
  */
-public class Epidemic {
+public class Epidemic extends JFrame{
+    /**
+     * Obiekt mapy
+     */
+    Map map;
     /**
      * Lista przechowująca obiekty typu Cure
      */
@@ -59,6 +63,7 @@ public class Epidemic {
      */
     public Epidemic(int mapHeight, int mapWidth, int infectChance, int recoveryChance, int healthyNumber,
                     int infectedNumber, int medicalNumber, int cureNumber){
+        super("Epidemic simulation");
         // Pętla tworząca nowe obiekty typu MedicalHuman i dodająca je do medicalHumanList
         for (int i = 0; i < medicalNumber; i++){
             medicalHumanList.add(new MedicalHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight)));
@@ -79,6 +84,20 @@ public class Epidemic {
         this.mapHeight = mapHeight;
         // Przypisanie do zmiennej mapWidth szerokości mapy
         this.mapWidth = mapWidth;
+        // Utworzenie mapy i przekazanie do niej list obiektów wraz z wymiarami mapy
+        map = new Map(infectedHumanList, healthyHumanList, medicalHumanList, cureList, mapWidth, mapHeight);
+        // Dodanie do ramki okna mapy
+        add(map);
+        // Spakowanie ramki
+        pack();
+        // Uniemożliwienie ręcznego zmienu rozmiaru okna mapy
+        setResizable(false);
+        // Ustawienie eventu zamykającego mapę
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        // Ustawienie widzialności mapy
+        setVisible(true);
+        // Umożliwienie odświerzania wyglądu mapy
+        map.invalidate();
     }
     /**
      * Metoda służąca do przeprowadzenia kolejnej epoki symulacji
@@ -140,14 +159,17 @@ public class Epidemic {
         System.out.println(medicalHumanList.size());
         System.out.println("Number of HealthyHuman objects:");
         System.out.println(healthyHumanList.size());
-        System.out.println("Number of recoverd human:");
+        System.out.println("Number of recoverd:");
         System.out.println(recovered);
-        System.out.println("Number of infected human");
+        System.out.println("Number of infected");
         System.out.println(infected);
         System.out.println();
     }
     /**
      * Metoda służąca do rysowania mapy
      */
-    public void drawMap(){ }
+    public void drawMap(){
+        // Odświerzenie mapy
+        map.repaint();
+    }
 }

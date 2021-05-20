@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SimulationObjectMover {
     private SimulationObjectMover() {}
-    private static final int moveRange = 3;
+    private static final int moveRange = 1;
     public static void moveAllSimulationObjects(List<MedicalHuman> medicalHumanList, List<InfectedHuman> infectedHumanList, List<HealthyHuman> healthyHumanList, List<Cure> cureList, int mapHeight, int mapWidth){
         int oldXPosition;
         int oldYPosition;
