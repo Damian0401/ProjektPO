@@ -6,14 +6,7 @@ import java.util.List;
 public class MainClass{
     public static void main(String[] args) {
 
-        Epidemic epidemic = new Epidemic(50, 50, 50, 50, 200, 10, 15, 20);
-
-        epidemic.saveStats();
-        epidemic.nextStage();
-        epidemic.nextStage();
-        epidemic.nextStage();
-        epidemic.saveStats();
-
+        simulation(20, 50, 50, 20, 50, 200, 20, 10, 20);
 
     }
 
