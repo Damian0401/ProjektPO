@@ -85,7 +85,7 @@ public class Epidemic extends JFrame{
         for (int i = 0; i < healthyNumber; i++){
             do{
                 temporaryHealthyHuman = humanFactory.createHealthyHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
-            }while (healthyHumanList.contains(temporaryHealthyHuman));
+            }while (healthyHumanList.contains(temporaryHealthyHuman) || medicalHumanList.contains(temporaryHealthyHuman));
             healthyHumanList.add(temporaryHealthyHuman);
         }
         // Pętla tworząca nowe obiekty typu InfectedHuman i dodająca je do infectedHumanList
@@ -93,7 +93,7 @@ public class Epidemic extends JFrame{
         for (int i = 0; i < infectedNumber; i++){
             do{
                 temporaryInfectedHuman = humanFactory.createInfectedHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
-            }while (infectedHumanList.contains(temporaryInfectedHuman));
+            }while (infectedHumanList.contains(temporaryInfectedHuman) || medicalHumanList.contains(temporaryInfectedHuman) || healthyHumanList.contains(temporaryInfectedHuman));
             infectedHumanList.add(temporaryInfectedHuman);
         }
         // Pętla tworząca nowe obiektu typu Cure, oraz dodająca je do cureList
@@ -101,7 +101,7 @@ public class Epidemic extends JFrame{
         for (int i = 0; i < cureNumber; i++){
             do{
                 temporaryCure = cureFactory.createCure(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
-            }while (cureList.contains(temporaryCure));
+            }while (cureList.contains(temporaryCure) || infectedHumanList.contains(temporaryCure) || medicalHumanList.contains(temporaryCure) || healthyHumanList.contains(temporaryCure));
             cureList.add(temporaryCure);
         }
         // Przypisanie do zmiennej mapHeight wysokości mapy
