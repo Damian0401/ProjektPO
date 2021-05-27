@@ -1,16 +1,18 @@
 package Epidemic_simulation;
 
+import Epidemic_simulation.*;
+
 import java.util.List;
 
 public class SimulationObjectMover {
 
     private SimulationObjectMover() {}
 
-    public static void moveAllSimulationObjects(List<AMedicalHuman> medicalHumanList, List<AInfectedHuman> infectedHumanList, List<AHealthyHuman> healthyHumanList, List<ACure> cureList, int mapHeight, int mapWidth){
+    public static void moveAllSimulationObjects(List<AMedicalObject> medicalHumanList, List<AInfectedObject> infectedHumanList, List<AHealthyObject> healthyHumanList, List<ACureObject> cureList, int mapHeight, int mapWidth){
         int oldXPosition;
         int oldYPosition;
         boolean busyPosition;
-        for(AMedicalHuman medicalHuman : medicalHumanList){
+        for(AMedicalObject medicalHuman : medicalHumanList){
             oldXPosition = medicalHuman.getXPosition();
             oldYPosition = medicalHuman.getYPosition();
             do {
@@ -25,7 +27,7 @@ public class SimulationObjectMover {
                 if (cureList.contains(medicalHuman)) busyPosition = true;
             }while (busyPosition);
         }
-        for(AInfectedHuman infectedHuman : infectedHumanList){
+        for(AInfectedObject infectedHuman : infectedHumanList){
             oldXPosition = infectedHuman.getXPosition();
             oldYPosition = infectedHuman.getYPosition();
             do {
@@ -40,7 +42,7 @@ public class SimulationObjectMover {
                 if (cureList.contains(infectedHuman)) busyPosition = true;
             }while (busyPosition);
         }
-        for(AHealthyHuman healthyHuman : healthyHumanList){
+        for(AHealthyObject healthyHuman : healthyHumanList){
             oldXPosition = healthyHuman.getXPosition();
             oldYPosition = healthyHuman.getYPosition();
             do {

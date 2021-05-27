@@ -1,6 +1,6 @@
 package Epidemic_simulation;
 
-public class HealthyHuman extends AHealthyHuman implements IMove{
+public class HealthyHuman extends AHealthyObject implements IMove {
 
     private int xPosition;
     private int yPosition;
@@ -13,7 +13,7 @@ public class HealthyHuman extends AHealthyHuman implements IMove{
     }
 
     @Override
-    public boolean isInfected(AInfectedHuman infectedHuman) {
+    public boolean isInfected(AInfectedObject infectedHuman) {
         // Sprawdzenie czy współrzędne obiektu InfectedHuman są zbyt odległe, aby doszło do zakażenia
         if(Math.abs(infectedHuman.getXPosition() - this.getXPosition()) > 2 || Math.abs(infectedHuman.getYPosition() - this.getYPosition()) > 2 ) return false;
         // Porównanie szansu na zakażenie obiektu InfectedHuman z losowo wylosowaną liczbą i na tej podstawie zwrócenie true lub false

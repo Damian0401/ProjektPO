@@ -1,6 +1,6 @@
 package Epidemic_simulation;
 
-public class InfectedHuman extends AInfectedHuman{
+public class InfectedHuman extends AInfectedObject {
 
 
     private int xPosition;
@@ -17,7 +17,7 @@ public class InfectedHuman extends AInfectedHuman{
 
 
     @Override
-    public boolean isCured(ACure cure){
+    public boolean isCured(ACureObject cure){
         // Sprawdzenie czy współrzędne obiektu Cure są zbyt odległe, aby doszło do uleszenia
         if(Math.abs(cure.getXPosition() - this.getXPosition()) > 2 || Math.abs(cure.getYPosition() - this.getYPosition()) > 2 ) return false;
         // Porównanie szansy na uleczenie obiektu Cure z losowo wylosowaną liczbą i na tej podstawie zwrócenie true lub false

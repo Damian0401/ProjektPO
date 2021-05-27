@@ -1,6 +1,8 @@
 package Epidemic_simulation;
 
-public class Cure extends ACure {
+import Epidemic_simulation.ACureObject;
+
+public class Cure extends ACureObject {
     private final int recoveryChance;
     private int xPosition;
     private int yPosition;

@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 public class Main{
     public static void main(String[] args) throws InterruptedException {
 
-        simulation(100, 10, 10,1, 10, 50, 85, 10, 5, 0 ,12);
+        simulation(100, 50, 50,1, 10, 50, 200, 10, 50, 50 ,15);
 
     }
 

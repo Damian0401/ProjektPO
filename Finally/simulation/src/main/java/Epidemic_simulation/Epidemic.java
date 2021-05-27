@@ -1,7 +1,6 @@
 package Epidemic_simulation;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,19 +15,19 @@ public class Epidemic extends JFrame{
     /**
      * Lista przechowująca obiekty typu Cure
      */
-    private final List<ACure> cureList = new ArrayList<>();
+    private final List<ACureObject> cureList = new ArrayList<>();
     /**
      * Lista przechowująca obiekty typu HealthyHuman
      */
-    private final List<AHealthyHuman> healthyHumanList = new ArrayList<>();
+    private final List<AHealthyObject> healthyHumanList = new ArrayList<>();
     /**
      * Lista przechowująca obiekty typu InfecteedHuman
      */
-    private final List<AInfectedHuman> infectedHumanList = new ArrayList<>();
+    private final List<AInfectedObject> infectedHumanList = new ArrayList<>();
     /**
      * Lista przechowująca obiekty typu MedicalHuman
      */
-    private final List<AMedicalHuman> medicalHumanList = new ArrayList<>();
+    private final List<AMedicalObject> medicalHumanList = new ArrayList<>();
     /**
      * Zmienna przechowująca ilość ludzi którzy wyzdrowieli od początku symulacji
      */
@@ -50,9 +49,7 @@ public class Epidemic extends JFrame{
      */
     private final int mapWidth;
 
-    private final ICureFactory cureFactory;
-
-    private final IHumanFactory humanFactory;
+    private final IObjectFactory objectFactory;
     /**
      * Konstruktor klasy Epidemic
      * @param mapHeight Wielkość mapy
@@ -69,38 +66,36 @@ public class Epidemic extends JFrame{
                     int infectedNumber, int medicalNumber, int cureNumber, int scale){
         super("Epidemic simulation");
 
-        cureFactory = new CureFactory(recoveryChance);
-
-        humanFactory = new HumanFactory(moveRange, infectChance);
+        objectFactory = new ObjectFactory(moveRange, infectChance, recoveryChance);
         // Pętla tworząca nowe obiekty typu MedicalHuman i dodająca je do medicalHumanList
-        AMedicalHuman temporaryMedicalHuman;
+        AMedicalObject temporaryMedicalHuman;
         for (int i = 0; i < medicalNumber; i++){
             do{
-                temporaryMedicalHuman = humanFactory.createMedicalHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
+                temporaryMedicalHuman = objectFactory.createMedicalHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
             }while (medicalHumanList.contains(temporaryMedicalHuman));
             medicalHumanList.add(temporaryMedicalHuman);
         }
         // Pętla tworząca nowe obiekty typu HealthyHuman i dodająca je do healthyHumanList
-        AHealthyHuman temporaryHealthyHuman;
+        AHealthyObject temporaryHealthyHuman;
         for (int i = 0; i < healthyNumber; i++){
             do{
-                temporaryHealthyHuman = humanFactory.createHealthyHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
+                temporaryHealthyHuman = objectFactory.createHealthyHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
             }while (healthyHumanList.contains(temporaryHealthyHuman) || medicalHumanList.contains(temporaryHealthyHuman));
             healthyHumanList.add(temporaryHealthyHuman);
         }
         // Pętla tworząca nowe obiekty typu InfectedHuman i dodająca je do infectedHumanList
-        AInfectedHuman temporaryInfectedHuman;
+        AInfectedObject temporaryInfectedHuman;
         for (int i = 0; i < infectedNumber; i++){
             do{
-                temporaryInfectedHuman = humanFactory.createInfectedHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
+                temporaryInfectedHuman = objectFactory.createInfectedHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
             }while (infectedHumanList.contains(temporaryInfectedHuman) || medicalHumanList.contains(temporaryInfectedHuman) || healthyHumanList.contains(temporaryInfectedHuman));
             infectedHumanList.add(temporaryInfectedHuman);
         }
         // Pętla tworząca nowe obiektu typu Cure, oraz dodająca je do cureList
-        ACure temporaryCure;
+        ACureObject temporaryCure;
         for (int i = 0; i < cureNumber; i++){
             do{
-                temporaryCure = cureFactory.createCure(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
+                temporaryCure = objectFactory.createCure(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
             }while (cureList.contains(temporaryCure) || infectedHumanList.contains(temporaryCure) || medicalHumanList.contains(temporaryCure) || healthyHumanList.contains(temporaryCure));
             cureList.add(temporaryCure);
         }
@@ -129,11 +124,11 @@ public class Epidemic extends JFrame{
      */
     public void nextStage(){
         // Pętla odpowiadająca za interakcję MedicalHuman oraz InfectedHuman
-        for (AMedicalHuman medicalHuman : medicalHumanList) {
+        for (AMedicalObject medicalHuman : medicalHumanList) {
             for (int i = 0; i < infectedHumanList.size(); i++) {
-                AInfectedHuman infectedHuman = infectedHumanList.get(i);
+                AInfectedObject infectedHuman = infectedHumanList.get(i);
                 if (medicalHuman.cureSuccessful(infectedHuman.getXPosition(), infectedHuman.getYPosition())) {
-                    healthyHumanList.add(humanFactory.createHealthyHuman(infectedHuman.getXPosition(), infectedHuman.getYPosition()));
+                    healthyHumanList.add(objectFactory.createHealthyHuman(infectedHuman.getXPosition(), infectedHuman.getYPosition()));
                     infectedHumanList.remove(i);
                     this.recovered++;
                     i--;
@@ -142,10 +137,10 @@ public class Epidemic extends JFrame{
         }
         // Pętla odpowiadająca za interakcję Cure oraz InfectedHuman
         for (int i = 0; i < infectedHumanList.size(); i++){
-            AInfectedHuman infectedHuman = infectedHumanList.get(i);
+            AInfectedObject infectedHuman = infectedHumanList.get(i);
             for (int j = 0; j < cureList.size(); j++){
                 if (infectedHuman.isCured(cureList.get(j))){
-                    healthyHumanList.add(humanFactory.createHealthyHuman(infectedHuman.getXPosition(), infectedHuman.getYPosition()));
+                    healthyHumanList.add(objectFactory.createHealthyHuman(infectedHuman.getXPosition(), infectedHuman.getYPosition()));
                     infectedHumanList.remove(i);
                     cureList.remove(j);
                     this.recovered++;
@@ -156,10 +151,10 @@ public class Epidemic extends JFrame{
         }
         // Pętla odpowiadająca za interakcję HealthyHuman oraz InfectedHuman
         for (int i = 0; i < healthyHumanList.size(); i++){
-            AHealthyHuman healthyHuman = healthyHumanList.get(i);
-            for (AInfectedHuman infectedHuman : infectedHumanList){
+            AHealthyObject healthyHuman = healthyHumanList.get(i);
+            for (AInfectedObject infectedHuman : infectedHumanList){
                 if (healthyHuman.isInfected(infectedHuman)){
-                    infectedHumanList.add(humanFactory.createInfectedHuman(healthyHuman.getXPosition(), healthyHuman.getYPosition()));
+                    infectedHumanList.add(objectFactory.createInfectedHuman(healthyHuman.getXPosition(), healthyHuman.getYPosition()));
                     healthyHumanList.remove(i);
                     this.infected++;
                     i--;

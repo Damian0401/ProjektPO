@@ -1,5 +1,10 @@
 package Epidemic_simulation;
 
+import Epidemic_simulation.ACureObject;
+import Epidemic_simulation.AHealthyObject;
+import Epidemic_simulation.AInfectedObject;
+import Epidemic_simulation.AMedicalObject;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
@@ -10,19 +15,19 @@ public class Map extends JPanel {
     /**
      * Lista przechowująca obiekty typu Cure
      */
-    private final List<ACure> cureList;
+    private final List<ACureObject> cureList;
     /**
      * Lista przechowująca obiekty typu HealthyHuman
      */
-    private final List<AHealthyHuman> healthyHumanList;
+    private final List<AHealthyObject> healthyHumanList;
     /**
      * Lista przechowująca obiekty typu InfecteedHuman
      */
-    private final List<AInfectedHuman> infectedHumanList;
+    private final List<AInfectedObject> infectedHumanList;
     /**
      * Lista przechowująca obiekty typu MedicalHuman
      */
-    private final List<AMedicalHuman> medicalHumanList;
+    private final List<AMedicalObject> medicalHumanList;
     /**
      * Konstruktor okna mapy
      * @param infectedHumanList list obiektów InfectedHuman
@@ -33,7 +38,8 @@ public class Map extends JPanel {
      * @param height Wysokość okna mapy
      * @param scale Skala mapy
      */
-    public Map(List<AInfectedHuman> infectedHumanList, List<AHealthyHuman> healthyHumanList, List<AMedicalHuman> medicalHumanList, List<ACure> cureList, int width, int height, int scale) {
+    public Map(List<AInfectedObject> infectedHumanList, List<AHealthyObject> healthyHumanList, List<AMedicalObject> medicalHumanList, List<ACureObject> cureList, int width, int height, int scale) {
+        this.setBackground(Color.LIGHT_GRAY);
         this.scale = scale;
         setPreferredSize(new Dimension(width*scale,height*scale));
         this.infectedHumanList = infectedHumanList;

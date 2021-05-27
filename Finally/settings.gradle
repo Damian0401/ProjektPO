@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'Epidemic_simulation'
-include('app')
+include('simulation')

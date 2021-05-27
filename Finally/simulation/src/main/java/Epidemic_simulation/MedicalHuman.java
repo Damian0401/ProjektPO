@@ -1,6 +1,8 @@
 package Epidemic_simulation;
 
-public class MedicalHuman extends AMedicalHuman{
+import Epidemic_simulation.AMedicalObject;
+
+public class MedicalHuman extends AMedicalObject {
 
 
     private int xPosition;
