@@ -1,10 +1,5 @@
 package Epidemic_simulation;
 
-import Epidemic_simulation.ACureObject;
-import Epidemic_simulation.AHealthyObject;
-import Epidemic_simulation.AInfectedObject;
-import Epidemic_simulation.AMedicalObject;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -49,12 +44,14 @@ public class Map extends JPanel {
      * Zmienna przechowująca szerokość mapy
      */
     private final int mapWidth;
-
+    /**
+     * Fabryka obiektów
+     */
     private final IObjectFactory objectFactory;
 
     public Map(int mapHeight, int mapWidth, int moveRange, int infectChance, int recoveryChance, int healthyNumber,
                int infectedNumber, int medicalNumber, int cureNumber, int scale) {
-        this.setBackground(Color.LIGHT_GRAY);
+        this.setBackground(new Color(154, 160, 145));
         setPreferredSize(new Dimension(mapWidth*scale,mapHeight*scale));
         this.scale = scale;
         objectFactory = new ObjectFactory(moveRange, infectChance, recoveryChance);
@@ -146,8 +143,11 @@ public class Map extends JPanel {
     /**
      * Metoda domyślnie służąca do zapisywania statystyk do pliku tekstowego, aktualnie jedynie wyświetla je w konsoli
      */
-    public EpidemicStatistics getStats(){
-        return new EpidemicStatistics(recovered, infected, stageNumber, infectedHumanList.size(), healthyHumanList.size(), cureList.size(), medicalHumanList.size());
+    public Statistics getStats(){
+        Statistics statistics = new Statistics(recovered, infected, stageNumber, infectedHumanList.size(), healthyHumanList.size(), cureList.size(), medicalHumanList.size());
+        recovered = 0;
+        infected = 0;
+        return statistics;
     }
     /**
      * Nadpisanie metody służącej do rysowania komponentów okna

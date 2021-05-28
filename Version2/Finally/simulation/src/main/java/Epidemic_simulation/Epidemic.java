@@ -1,9 +1,15 @@
 package Epidemic_simulation;
 
 import javax.swing.*;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 
@@ -12,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Epidemic extends JFrame{
 
-    Queue<EpidemicStatistics> queue = new LinkedList<>();
+    Queue<Statistics> queue = new LinkedList<>();
     /**
      * Obiekt mapy
      */
@@ -21,9 +27,7 @@ public class Epidemic extends JFrame{
      * Zmienna przechowująca aktualny numer epoki
      */
     private final int stageNumber;
-    /**
-     * Zmienna przechowująca wysokość mapy
-     */
+
     /**
      * Konstruktor klasy Epidemic
      * @param mapHeight Wielkość mapy
@@ -53,7 +57,7 @@ public class Epidemic extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Ustawienie widzialności mapy
         setVisible(true);
-        // Umożliwienie odświerzania wyglądu mapy
+        // Umożliwienie odświeżania wyglądu mapy
         map.invalidate();
     }
 
@@ -61,16 +65,39 @@ public class Epidemic extends JFrame{
         map.repaint();
         queue.add(map.getStats());
 
-        for(int i = 0; i < stageNumber; i++){
+        for(int i = 0; i < stageNumber; i++) {
             TimeUnit.MILLISECONDS.sleep(500);
             map.nextStage();
             map.repaint();
             queue.add(map.getStats());
         }
 
-        System.out.println(queue.size());
-        while (!queue.isEmpty()){
-            System.out.println(queue.poll());
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        Date date = new Date();
+
+        String fileName = ".\\statistics\\" + formatter.format(date) + ".csv";
+        System.out.println(fileName);
+        String newFileName = fileName.replace(" ","");
+        try {
+            File myObj = new File(newFileName);
+            myObj.createNewFile();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
         }
+
+        try {
+            FileWriter myWriter = new FileWriter(newFileName);
+            myWriter.write("Stage number;Healthy human number;Infected human number;Medical human number;Cure number;New recovered number;New infected number\n");
+            while (!queue.isEmpty()) {
+                myWriter.write(queue.poll().toString());
+            }
+            myWriter.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        System.out.println("The simulation has been ended\n");
+        System.out.println(System.getProperty("user.dir"));
     }
 }

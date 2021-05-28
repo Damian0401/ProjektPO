@@ -4,8 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Main{
     public static void main(String[] args) {
-
-        Epidemic epidemic = new Epidemic(50, 50, 15, 1, 10, 50, 200, 5, 20, 20, 10);
+        System.out.println(args.length);
+        Epidemic epidemic = new Epidemic(50, 50, 2, 1, 10, 50, 200, 5, 20, 20, 10);
         try {
             epidemic.startSimulation();
         }
@@ -13,4 +13,6 @@ public class Main{
             System.out.println(e.getMessage());
         }
     }
+
+
 }
