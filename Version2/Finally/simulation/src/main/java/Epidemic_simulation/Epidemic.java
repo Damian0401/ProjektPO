@@ -68,11 +68,12 @@ public class Epidemic extends JFrame{
         for(int i = 0; i < stageNumber; i++) {
             TimeUnit.MILLISECONDS.sleep(500);
             map.nextStage();
+            map.moveObjects();
             map.repaint();
             queue.add(map.getStats());
         }
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy-HH-mm-ss");
         Date date = new Date();
 
         String fileName = ".\\statistics\\" + formatter.format(date) + ".csv";
@@ -80,23 +81,22 @@ public class Epidemic extends JFrame{
         String newFileName = fileName.replace(" ","");
         try {
             File myObj = new File(newFileName);
-            myObj.createNewFile();
+            if(myObj.createNewFile()){
+
+                    FileWriter myWriter = new FileWriter(newFileName);
+                    myWriter.write("Stage number;HealthyObject number;InfectedObject number;MedicalObject number;CureObject number;New recovered number;New infected number\n");
+                    while (!queue.isEmpty()) {
+                        myWriter.write(queue.poll().toString());
+                    }
+                    myWriter.close();
+
+            }
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
-        try {
-            FileWriter myWriter = new FileWriter(newFileName);
-            myWriter.write("Stage number;Healthy human number;Infected human number;Medical human number;Cure number;New recovered number;New infected number\n");
-            while (!queue.isEmpty()) {
-                myWriter.write(queue.poll().toString());
-            }
-            myWriter.close();
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+
         System.out.println("The simulation has been ended\n");
         System.out.println(System.getProperty("user.dir"));
     }
