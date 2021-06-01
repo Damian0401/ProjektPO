@@ -19,13 +19,14 @@ public class Main{
         }
 
 
-        Epidemic epidemic = new Epidemic(valueOfArgs[0], valueOfArgs[1], valueOfArgs[2], valueOfArgs[3], valueOfArgs[4], valueOfArgs[5], valueOfArgs[6], valueOfArgs[7], valueOfArgs[8], valueOfArgs[9], valueOfArgs[10]);
+        Epidemic epidemic = new Epidemic(valueOfArgs[0], valueOfArgs[1], valueOfArgs[2], valueOfArgs[3], valueOfArgs[4], valueOfArgs[5], valueOfArgs[6], valueOfArgs[7], valueOfArgs[8], valueOfArgs[9]);
         try {
-            epidemic.startSimulation();
+            epidemic.startSimulation(valueOfArgs[10]);
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        epidemic.saveStats();
     }
 
 
