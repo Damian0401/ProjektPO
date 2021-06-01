@@ -15,7 +15,7 @@ public class HealthyHuman extends AHealthyObject implements IMove {
     @Override
     public boolean isInfected(AInfectedObject infectedHuman) {
         // Sprawdzenie czy współrzędne obiektu InfectedHuman są zbyt odległe, aby doszło do zakażenia
-        if(Math.abs(infectedHuman.getXPosition() - this.getXPosition()) > 2 || Math.abs(infectedHuman.getYPosition() - this.getYPosition()) > 2 ) return false;
+        if(Math.abs(infectedHuman.getXPosition() - xPosition) > 2 || Math.abs(infectedHuman.getYPosition() - yPosition) > 2 ) return false;
         // Porównanie szansu na zakażenie obiektu InfectedHuman z losowo wylosowaną liczbą i na tej podstawie zwrócenie true lub false
         return infectedHuman.getInfectChance() >= RandomGenerator.getChance();
     }

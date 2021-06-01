@@ -16,9 +16,9 @@ public class MedicalHuman extends AMedicalObject {
     }
 
     @Override
-    public boolean cureSuccessful(int xPosition, int yPosition) {
+    public boolean cureSuccessful(AInfectedObject infectedObject) {
         // Sprawdzenie czy współrzędne obiektu InfectedHuman są zbyt odległe, aby został uleczony i na tej postawie wzrócenie true lub false
-        return Math.abs(xPosition - this.getXPosition()) < 2 && Math.abs(yPosition - this.getYPosition()) < 2 ;
+        return Math.abs(infectedObject.getXPosition() - xPosition) < 2 && Math.abs(infectedObject.getXPosition() - yPosition) < 2 ;
     }
 
     @Override

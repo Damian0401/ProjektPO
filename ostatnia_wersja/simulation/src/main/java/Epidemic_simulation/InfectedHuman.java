@@ -19,7 +19,7 @@ public class InfectedHuman extends AInfectedObject {
     @Override
     public boolean isCured(ACureObject cure){
         // Sprawdzenie czy współrzędne obiektu Cure są zbyt odległe, aby doszło do uleszenia
-        if(Math.abs(cure.getXPosition() - this.getXPosition()) > 2 || Math.abs(cure.getYPosition() - this.getYPosition()) > 2 ) return false;
+        if(Math.abs(cure.getXPosition() - xPosition) > 2 || Math.abs(cure.getYPosition() - yPosition) > 2 ) return false;
         // Porównanie szansy na uleczenie obiektu Cure z losowo wylosowaną liczbą i na tej podstawie zwrócenie true lub false
         return cure.getRecoveryChance() >= RandomGenerator.getChance();
     }
