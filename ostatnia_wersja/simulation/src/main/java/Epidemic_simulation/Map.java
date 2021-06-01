@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Map extends JPanel {
+public class Map extends AMap {
 
     private final int scale;
     /**
@@ -95,6 +95,7 @@ public class Map extends JPanel {
     /**
      * Metoda służąca do przeprowadzenia kolejnej epoki symulacji
      */
+    @Override
     public void nextStage(){
         // Pętla odpowiadająca za interakcję MedicalHuman oraz InfectedHuman
         for (AMedicalObject medicalHuman : medicalHumanList) {
@@ -140,6 +141,7 @@ public class Map extends JPanel {
         stageNumber++;
     }
 
+    @Override
     public void moveObjects(){
         // Poruszenie obiektów symulacji
         int oldXPosition;
@@ -194,6 +196,7 @@ public class Map extends JPanel {
     /**
      * Metoda domyślnie służąca do zapisywania statystyk do pliku tekstowego, aktualnie jedynie wyświetla je w konsoli
      */
+    @Override
     public Statistics getStats(){
         Statistics statistics = new Statistics(recovered, infected, stageNumber, infectedHumanList.size(), healthyHumanList.size(), cureList.size(), medicalHumanList.size());
         recovered = 0;

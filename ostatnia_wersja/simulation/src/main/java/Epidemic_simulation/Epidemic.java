@@ -22,7 +22,7 @@ public class Epidemic extends JFrame{
     /**
      * Obiekt mapy
      */
-    private final Map map;
+    private final AMap map;
     /**
      * Zmienna przechowująca aktualny numer epoki
      */
@@ -97,6 +97,5 @@ public class Epidemic extends JFrame{
 
 
         System.out.println("The simulation has been ended\n");
-        System.out.println(System.getProperty("user.dir"));
     }
 }
