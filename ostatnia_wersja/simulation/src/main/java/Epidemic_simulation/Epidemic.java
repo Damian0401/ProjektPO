@@ -59,7 +59,7 @@ public class Epidemic extends JFrame{
         queueWithStatistics.add(map.getStats());
 
         for(int i = 0; i < stageNumber; i++) {
-            TimeUnit.MILLISECONDS.sleep(500);
+            TimeUnit.MILLISECONDS.sleep(5);
             map.nextStage();
             map.moveObjects();
             map.repaint();

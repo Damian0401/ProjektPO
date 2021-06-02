@@ -1,8 +1,8 @@
 package Epidemic_simulation;
 
 public interface IObjectFactory {
-    AInfectedObject createInfectedHuman(int xPosition, int yPosition);
-    AHealthyObject createHealthyHuman(int xPosition, int yPosition);
-    AMedicalObject createMedicalHuman(int xPosition, int yPosition);
-    ACureObject createCure(int xPosition, int yPosition);
+    AInfectedObject createInfectedObject(int xPosition, int yPosition);
+    AHealthyObject createHealthyObject(int xPosition, int yPosition);
+    AMedicalObject createMedicalObject(int xPosition, int yPosition);
+    ACureObject createCureObject(int xPosition, int yPosition);
 }

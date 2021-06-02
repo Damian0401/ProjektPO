@@ -58,7 +58,7 @@ public class Map extends AMap {
         AMedicalObject temporaryMedicalObject;
         for (int i = 0; i < medicalNumber; i++){
             do{
-                temporaryMedicalObject = objectFactory.createMedicalHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
+                temporaryMedicalObject = objectFactory.createMedicalObject(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
             }while (medicalObjectList.contains(temporaryMedicalObject));
             medicalObjectList.add(temporaryMedicalObject);
         }
@@ -66,7 +66,7 @@ public class Map extends AMap {
         AHealthyObject temporaryHealthyObject;
         for (int i = 0; i < healthyNumber; i++){
             do{
-                temporaryHealthyObject = objectFactory.createHealthyHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
+                temporaryHealthyObject = objectFactory.createHealthyObject(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
             }while (healthyObjectList.contains(temporaryHealthyObject) || medicalObjectList.contains(temporaryHealthyObject));
             healthyObjectList.add(temporaryHealthyObject);
         }
@@ -74,7 +74,7 @@ public class Map extends AMap {
         AInfectedObject temporaryInfectedObject;
         for (int i = 0; i < infectedNumber; i++){
             do{
-                temporaryInfectedObject = objectFactory.createInfectedHuman(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
+                temporaryInfectedObject = objectFactory.createInfectedObject(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
             }while (infectedObjectList.contains(temporaryInfectedObject) || medicalObjectList.contains(temporaryInfectedObject) || healthyObjectList.contains(temporaryInfectedObject));
             infectedObjectList.add(temporaryInfectedObject);
         }
@@ -82,7 +82,7 @@ public class Map extends AMap {
         ACureObject temporaryCure;
         for (int i = 0; i < cureNumber; i++){
             do{
-                temporaryCure = objectFactory.createCure(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
+                temporaryCure = objectFactory.createCureObject(RandomGenerator.getPosition(mapWidth), RandomGenerator.getPosition(mapHeight));
             }while (cureObjectList.contains(temporaryCure) || infectedObjectList.contains(temporaryCure) || medicalObjectList.contains(temporaryCure) || healthyObjectList.contains(temporaryCure));
             cureObjectList.add(temporaryCure);
         }
@@ -101,7 +101,7 @@ public class Map extends AMap {
             for (int i = 0; i < infectedObjectList.size(); i++) {
                 AInfectedObject infectedHuman = infectedObjectList.get(i);
                 if (medicalObject.cureSuccessful(infectedHuman)) {
-                    healthyObjectList.add(objectFactory.createHealthyHuman(infectedHuman.getXPosition(), infectedHuman.getYPosition()));
+                    healthyObjectList.add(objectFactory.createHealthyObject(infectedHuman.getXPosition(), infectedHuman.getYPosition()));
                     infectedObjectList.remove(i);
                     this.recovered++;
                     i--;
@@ -113,7 +113,7 @@ public class Map extends AMap {
             AInfectedObject infectedObject = infectedObjectList.get(i);
             for (int j = 0; j < cureObjectList.size(); j++){
                 if (infectedObject.isCured(cureObjectList.get(j))){
-                    healthyObjectList.add(objectFactory.createHealthyHuman(infectedObject.getXPosition(), infectedObject.getYPosition()));
+                    healthyObjectList.add(objectFactory.createHealthyObject(infectedObject.getXPosition(), infectedObject.getYPosition()));
                     infectedObjectList.remove(i);
                     cureObjectList.remove(j);
                     this.recovered++;
@@ -127,7 +127,7 @@ public class Map extends AMap {
             AHealthyObject healthyObject = healthyObjectList.get(i);
             for (AInfectedObject infectedObject : infectedObjectList){
                 if (healthyObject.isInfected(infectedObject)){
-                    infectedObjectList.add(objectFactory.createInfectedHuman(healthyObject.getXPosition(), healthyObject.getYPosition()));
+                    infectedObjectList.add(objectFactory.createInfectedObject(healthyObject.getXPosition(), healthyObject.getYPosition()));
                     healthyObjectList.remove(i);
                     this.infected++;
                     i--;
