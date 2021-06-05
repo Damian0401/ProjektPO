@@ -14,10 +14,13 @@ import java.util.concurrent.TimeUnit;
  * Główna klasa odpowiadająca za przebieg symulacji
  */
 public class Epidemic extends JFrame{
-
-    Queue<Statistics> queueWithStatistics = new LinkedList<>();
     /**
-     * Obiekt mapy
+     * Kolejka przechowujaca statystyki zbierane podczas przeprowadzania symulacji
+     */
+    Queue<Statistics> queueWithStatistics = new LinkedList<>();
+
+    /**
+     * Referencja do obiektu mapy
      */
     private final AMap map;
 
@@ -35,9 +38,8 @@ public class Epidemic extends JFrame{
      */
     public Epidemic(int mapHeight, int mapWidth,int moveRange, int infectChance, int recoveryChance, int healthyNumber,
                     int infectedNumber, int medicalNumber, int cureNumber, int scale){
+        // Okreslenie nazwy okna symulacji
         super("Epidemic simulation");
-
-
         // Utworzenie mapy i przekazanie do niej list obiektów wraz z wymiarami mapy
         map = new Map(mapHeight, mapWidth, moveRange, infectChance, recoveryChance, healthyNumber, infectedNumber, medicalNumber, cureNumber, scale);
         // Dodanie do ramki okna mapy
@@ -54,47 +56,80 @@ public class Epidemic extends JFrame{
         map.invalidate();
     }
 
-    public void startSimulation(int stageNumber) throws InterruptedException {
+    /**
+     * Metoda sluzaca do uruchamiania symulacji na wskazana ilosc epok
+     * @param stageNumber ilosc epok symulacji ktore maja zostac przeprowadzone
+     */
+    public void startSimulation(int stageNumber) {
+        // Odswierzenie mapy
         map.repaint();
+        // Dodanie do kolejki statystyk poczatkowych
         queueWithStatistics.add(map.getStats());
-
-        for(int i = 0; i < stageNumber; i++) {
-            TimeUnit.MILLISECONDS.sleep(5);
-            map.nextStage();
-            map.moveObjects();
-            map.repaint();
-            queueWithStatistics.add(map.getStats());
+        try{
+            // Petla wykonana tyle razy, ile wynoki liczba epok w parametrze metody
+            for(int i = 0; i < stageNumber; i++) {
+                // Odczekanie odpowiednej ilosci czasu
+                TimeUnit.MILLISECONDS.sleep(5);
+                // Przeprowadzenie kolejnej epoki symulacji
+                map.nextStage();
+                // Prouszenie obiektow symulacji
+                map.moveObjects();
+                // Odswierzenie mapy
+                map.repaint();
+                // Dodanie do kolejki statystyk danej epoki
+                queueWithStatistics.add(map.getStats());
+            }
+            // Wyswietlenie komunikatu o zakonczeniu symulacji
+            System.out.println("Symulacja zakończona pomyślnie\n");
         }
-
-        System.out.println("Symulacja zakończona\n");
+        catch (Exception e){
+            // Wyswietlenie komunikatu w przypadku wystapnienia bledu
+            System.out.println("Nie udało się poprawnie przeprowadzić symulacji:\n" + e.getMessage());
+        }
     }
 
+    /**
+     * Metoda sluzaca do zapisywania statystyk epidemii do pliku tekstowego
+     */
     public void saveStats(){
+        // Warunek sprawdzajacy czy kolejna z statystykami jest pusta
         if(queueWithStatistics.isEmpty()){
+            // Wyswietlenie komunikatu o braku statystyk do zapisanie
             System.out.println("Aplikacja nie posiada żadnych zebranych danych.");
+            // Zakonczenie dzialania metody
+            return;
         }
-        else {
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy-HH-mm-ss");
-            Date date = new Date();
-
-            String filePath = ".\\statistics\\" + formatter.format(date) + ".csv";
-            System.out.println(filePath);
-            String newFileName = filePath.replace(" ","");
-            try {
-                File myObj = new File(newFileName);
-                if(myObj.createNewFile()){
-
-                    FileWriter myWriter = new FileWriter(newFileName);
-                    myWriter.write("Stage number;HealthyObject number;InfectedObject number;MedicalObject number;CureObject number;New recovered number;New infected number\n");
-                    while (!queueWithStatistics.isEmpty()) {
-                        myWriter.write(queueWithStatistics.poll().toString());
-                    }
-                    myWriter.close();
-
+        // Utworzenie obiektu do formatowania dany
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy-HH-mm-ss");
+        // Utworzenie obiektu do przechowywania dany
+        Date date = new Date();
+        // Utworzenie sciezki do pliku z statystykami
+        String filePath = ".\\statistics\\" + formatter.format(date) + ".csv";
+        // Wyswietlenie sciezki do pliku z statystykami
+        System.out.println(filePath);
+        try {
+            // Utworzenie obiektu
+            File myFile = new File(filePath);
+            // Warunek sprawdzajacy czy powiodlo sie utworzenie nowego pliku
+            if(myFile.createNewFile()){
+                // Utworzenie obiektu sluzacego do zapisywania statstyk do pliki *.csv
+                FileWriter myWriter = new FileWriter(filePath);
+                // Zapisanie do pliki *.csv naglowkow dla odpowiednych kolumn
+                myWriter.write("Stage number;HealthyObject number;InfectedObject number;MedicalObject number;CureObject number;New recovered number;New infected number\n");
+                // Petla wykonujaca sie dopoki w kolejce znajduja sie statystyki
+                while (!queueWithStatistics.isEmpty()) {
+                    // Zapisanie statystyk do pliku *.csv
+                    myWriter.write(queueWithStatistics.poll().toString());
                 }
-            } catch (IOException e) {
-                System.out.println("Nie powiadło się zapisywanie statystyk");
+                // Zamkniecie strumienia danych
+                myWriter.close();
+                // Wyswietlenie komunikatu o pomyslnym zapisaniu statystyk
+                System.out.println("Pomyślnie zapisano statystyki symulacji.");
             }
+        } catch (IOException e) {
+            // Wyswietlenie komunikatu w przypadku wystapnienia bledu
+            System.out.println("Nie powiadło się zapisywanie statystyk");
         }
+
     }
 }

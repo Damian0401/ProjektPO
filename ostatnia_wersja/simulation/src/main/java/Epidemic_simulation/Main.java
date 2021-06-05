@@ -18,14 +18,11 @@ public class Main{
 //            System.exit(0);
 //        }
 
-
+        // Utworzenie symulacji z zadanymi parametrami
         Epidemic epidemic = new Epidemic(valueOfArgs[0], valueOfArgs[1], valueOfArgs[2], valueOfArgs[3], valueOfArgs[4], valueOfArgs[5], valueOfArgs[6], valueOfArgs[7], valueOfArgs[8], valueOfArgs[9]);
-        try {
-            epidemic.startSimulation(valueOfArgs[10]);
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        // Przeprowadzenie wskazanej liczby epok symulacji
+        epidemic.startSimulation(valueOfArgs[10]);
+        // Zapisanie statystych symulacji do pliku tekstowego
         epidemic.saveStats();
     }
 
