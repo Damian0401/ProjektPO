@@ -23,6 +23,13 @@ public class HealthyHuman extends AHealthyObject implements IMove {
      * @param moveRange Zakres ruchu obiektu
      */
     public HealthyHuman(int xPosition, int yPosition, int moveRange) {
+
+        if(xPosition < 0 || yPosition < 0){
+            throw new IllegalArgumentException("Wspolrzedne nie moga byc ujemne.");
+        }
+        if(moveRange < 0){
+            throw new IllegalArgumentException("Zakres ruchu nie moze byc ujemny.");
+        }
         // Przypisanie do zmiennej xPosition wspolrzednej x obiektu
         this.xPosition = xPosition;
         // Przypisanie do zmiennej yPosition wspolrzednej y obiektu

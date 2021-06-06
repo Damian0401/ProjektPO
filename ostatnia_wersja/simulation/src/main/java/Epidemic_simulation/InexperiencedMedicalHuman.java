@@ -8,10 +8,15 @@ public class InexperiencedMedicalHuman extends AMedicalObject {
     private final int moveRange;
 
     public InexperiencedMedicalHuman(int xPosition, int yPosition, int moveRange) {
+        if(xPosition < 0 || yPosition < 0){
+            throw new IllegalArgumentException("Wspolrzedne nie moga byc ujemne.");
+        }
+        if(moveRange < 0){
+            throw new IllegalArgumentException("Zakres ruchu nie moze byc ujemny.");
+        }
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.moveRange = moveRange;
-        System.out.println("M");
     }
 
     @Override

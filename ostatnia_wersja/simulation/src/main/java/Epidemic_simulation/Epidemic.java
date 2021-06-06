@@ -36,7 +36,7 @@ public class Epidemic extends JFrame{
      * @param cureNumber Ilość obiektów typu Cure
      * @param scale Skala obiektów na mapie
      */
-    public Epidemic(int mapHeight, int mapWidth,int moveRange, int infectChance, int recoveryChance, int healthyNumber,
+    public Epidemic(int mapHeight, int mapWidth, int moveRange, int infectChance, int recoveryChance, int healthyNumber,
                     int infectedNumber, int medicalNumber, int cureNumber, int scale){
         // Okreslenie nazwy okna symulacji
         super("Epidemic simulation");
@@ -61,29 +61,34 @@ public class Epidemic extends JFrame{
      * @param stageNumber ilosc epok symulacji ktore maja zostac przeprowadzone
      */
     public void startSimulation(int stageNumber) {
-        // Odswierzenie mapy
+
+
+        if(stageNumber < 0){
+            throw new IllegalArgumentException("Ilosc epok nie moze byc ujemna.");
+        }
+        // Odswiezenie mapy
         map.repaint();
         // Dodanie do kolejki statystyk poczatkowych
         queueWithStatistics.add(map.getStats());
         try{
-            // Petla wykonana tyle razy, ile wynoki liczba epok w parametrze metody
+            // Petla wykonana tyle razy, ile wynosi liczba epok w parametrze metody
             for(int i = 0; i < stageNumber; i++) {
                 // Odczekanie odpowiednej ilosci czasu
-                TimeUnit.MILLISECONDS.sleep(5);
+                TimeUnit.MILLISECONDS.sleep(500);
                 // Przeprowadzenie kolejnej epoki symulacji
                 map.nextStage();
                 // Prouszenie obiektow symulacji
                 map.moveObjects();
-                // Odswierzenie mapy
+                // Odswiezenie mapy
                 map.repaint();
                 // Dodanie do kolejki statystyk danej epoki
                 queueWithStatistics.add(map.getStats());
             }
             // Wyswietlenie komunikatu o zakonczeniu symulacji
-            System.out.println("Symulacja zakończona pomyślnie\n");
+            System.out.println("Symulacja przeprowadzona pomyślnie\n");
         }
         catch (Exception e){
-            // Wyswietlenie komunikatu w przypadku wystapnienia bledu
+            // Wyswietlenie komunikatu w przypadku wystapienia bledu
             System.out.println("Nie udało się poprawnie przeprowadzić symulacji:\n" + e.getMessage());
         }
     }
@@ -92,7 +97,7 @@ public class Epidemic extends JFrame{
      * Metoda sluzaca do zapisywania statystyk epidemii do pliku tekstowego
      */
     public void saveStats(){
-        // Warunek sprawdzajacy czy kolejna z statystykami jest pusta
+        // Warunek sprawdzajacy czy kolejka z statystykami jest pusta
         if(queueWithStatistics.isEmpty()){
             // Wyswietlenie komunikatu o braku statystyk do zapisanie
             System.out.println("Aplikacja nie posiada żadnych zebranych danych.");
@@ -127,8 +132,8 @@ public class Epidemic extends JFrame{
                 System.out.println("Pomyślnie zapisano statystyki symulacji.");
             }
         } catch (IOException e) {
-            // Wyswietlenie komunikatu w przypadku wystapnienia bledu
-            System.out.println("Nie powiadło się zapisywanie statystyk");
+            // Wyswietlenie komunikatu w przypadku wystapienia bledu
+            System.out.println("Nie powiodło się zapisywanie statystyk");
         }
 
     }

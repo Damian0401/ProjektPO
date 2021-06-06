@@ -5,7 +5,6 @@ public class ObjectFactory implements IObjectFactory {
     private final int moveRange;
     private final int infectChance;
     private final int recoveryChance;
-    private int medicalNumber = 0;
     private boolean firstInfectedExist;
 
     public ObjectFactory(int moveRange, int infectChance, int recoveryChance){
@@ -23,17 +22,13 @@ public class ObjectFactory implements IObjectFactory {
 
     @Override
     public AHealthyObject createHealthyObject(int xPosition, int yPosition) {
-        if(firstInfectedExist && RandomGenerator.getChance()<51) return new CuredHealthyHuman(xPosition, yPosition, this.moveRange);
+        if(firstInfectedExist && RandomGenerator.getChance()<51) return new ImmuneHealthyHuman(xPosition, yPosition, this.moveRange);
         return new HealthyHuman(xPosition, yPosition, this.moveRange);
     }
 
     @Override
     public AMedicalObject createMedicalObject(int xPosition, int yPosition) {
-        if(medicalNumber>4) {
-            medicalNumber=0;
-            return new InexperiencedMedicalHuman(xPosition, yPosition, this.moveRange);
-        }
-        medicalNumber++;
+        if(RandomGenerator.getChance()<26) return new InexperiencedMedicalHuman(xPosition, yPosition, this.moveRange);
         return new MedicalHuman(xPosition, yPosition, this.moveRange);
     }
 

@@ -9,6 +9,16 @@ public class InfectedHuman extends AInfectedObject {
     private final int infectChance;
 
     public InfectedHuman(int xPosition, int yPosition, int moveRange, int infectChance) {
+
+        if(xPosition < 0 || yPosition < 0){
+            throw new IllegalArgumentException("Wspolrzedne nie moga byc ujemne.");
+        }
+        if(infectChance < 0){
+            throw new IllegalArgumentException("Szansa na zarazenie nie moze byc ujemna.");
+        }
+        if(moveRange < 0){
+            throw new IllegalArgumentException("Zakres ruchu nie moze byc ujemny.");
+        }
         this.infectChance = infectChance;
         this.xPosition = xPosition;
         this.yPosition = yPosition;

@@ -8,11 +8,20 @@ public class MutatedInfectedHuman extends AInfectedObject{
     private final int infectChance;
 
     public MutatedInfectedHuman(int xPosition, int yPosition, int moveRange, int infectChance) {
+
+        if(xPosition < 0 || yPosition < 0){
+            throw new IllegalArgumentException("Wspolrzedne nie moga byc ujemne.");
+        }
+        if(infectChance < 0){
+            throw new IllegalArgumentException("Szansa na zarazenie nie moze byc ujemna.");
+        }
+        if(moveRange < 0){
+            throw new IllegalArgumentException("Zakres ruchu nie moze byc ujemny.");
+        }
         this.infectChance = Math.min(2 * infectChance, 100);
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.moveRange = moveRange + 1;
-        System.out.println("I");
     }
 
 

@@ -10,6 +10,13 @@ public class MedicalHuman extends AMedicalObject {
     private final int moveRange;
 
     public MedicalHuman(int xPosition, int yPosition, int moveRange) {
+
+        if(xPosition < 0 || yPosition < 0){
+            throw new IllegalArgumentException("Wspolrzedne nie moga byc ujemne.");
+        }
+        if(moveRange < 0){
+            throw new IllegalArgumentException("Zakres ruchu nie moze byc ujemny.");
+        }
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.moveRange = moveRange;

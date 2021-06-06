@@ -1,0 +1,12 @@
+Stage number;HealthyObject number;InfectedObject number;MedicalObject number;CureObject number;New recovered number;New infected number
+0;100;10;10;30;0;0
+1;88;22;10;28;2;14
+2;76;34;10;27;3;15
+3;55;55;10;22;5;26
+4;48;62;10;17;11;18
+5;29;81;10;9;8;27
+6;22;88;10;7;19;26
+7;24;86;10;6;17;15
+8;26;84;10;1;18;16
+9;18;92;10;1;8;16
+10;26;84;10;0;20;12

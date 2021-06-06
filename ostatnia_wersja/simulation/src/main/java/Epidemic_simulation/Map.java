@@ -50,6 +50,25 @@ public class Map extends AMap {
 
     public Map(int mapHeight, int mapWidth, int moveRange, int infectChance, int recoveryChance, int healthyNumber,
                int infectedNumber, int medicalNumber, int cureNumber, int scale) {
+        if((mapHeight * mapWidth) < (healthyNumber + infectedNumber + medicalNumber + cureNumber)){
+            throw new IllegalArgumentException("Ilosc obiektow nie moze wieksza niz ilosc pol mapy.");
+        }
+        if(mapHeight < 0 || mapWidth < 0){
+            throw new IllegalArgumentException("Wymiary mapy nie moga byc ujemne.");
+        }
+        if(infectChance < 0){
+            throw new IllegalArgumentException("Szansa na zakazenie nie moze byc ujemna.");
+        }
+        if(recoveryChance < 0){
+            throw new IllegalArgumentException("Szansa na uleczenie nie moze byc ujemna.");
+        }
+        if(healthyNumber < 0 || infectedNumber < 0 || medicalNumber < 0 || cureNumber < 0){
+            throw new IllegalArgumentException("Ilosc obiektow nie moze byc ujemne.");
+        }
+        if(scale < 1){
+            throw new IllegalArgumentException("Skala mapy nie moze byc mniejsza od 1");
+        }
+
         this.setBackground(new Color(154, 160, 145));
         setPreferredSize(new Dimension(mapWidth*scale,mapHeight*scale));
         this.scale = scale;

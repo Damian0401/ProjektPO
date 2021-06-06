@@ -3,7 +3,7 @@ package Epidemic_simulation;
 /**
  * Klasa reprezentujaca zdrowego czlowieka ktory posiada zwiekszona odpornosc na zakazenie
  */
-public class CuredHealthyHuman extends AHealthyObject implements IMove {
+public class ImmuneHealthyHuman extends AHealthyObject implements IMove {
     /**
      * Wspolrzedna x obiektu
      */
@@ -22,7 +22,14 @@ public class CuredHealthyHuman extends AHealthyObject implements IMove {
      * @param yPosition Wspolrzedna y obiektu
      * @param moveRange Zakres ruchu obiektu
      */
-    public CuredHealthyHuman(int xPosition, int yPosition, int moveRange) {
+    public ImmuneHealthyHuman(int xPosition, int yPosition, int moveRange) {
+
+        if(xPosition < 0 || yPosition < 0){
+            throw new IllegalArgumentException("Wspolrzedne nie moga byc ujemne.");
+        }
+        if(moveRange < 0){
+            throw new IllegalArgumentException("Zakres ruchu nie moze byc ujemny.");
+        }
         // Przypisanie do zmiennej xPosition wspolrzednej przekazanej w konstruktorze
         this.xPosition = xPosition;
         // Przypisanie do zmiennej yPosition wspolrzednej przekazanej w konstruktorze

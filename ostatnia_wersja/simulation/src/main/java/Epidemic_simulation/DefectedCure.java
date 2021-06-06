@@ -23,6 +23,14 @@ public class DefectedCure extends ACureObject {
      * @param recoveryChance Szansa na uleczenie zakazonego
      */
     public DefectedCure(int xPosition, int yPosition, int recoveryChance) {
+
+        if(xPosition < 0 || yPosition < 0){
+            throw new IllegalArgumentException("Wspolrzedne nie moga byc ujemne.");
+        }
+        if(recoveryChance < 0){
+            throw new IllegalArgumentException("Szansa na uleczenie nie moze byc ujemna.");
+        }
+
         // Przypisanie do zmiennej recoveryChange 40% wprowadzanej szansu na uleczenie
         this.recoveryChance = (int)(0.4f*recoveryChance);
         // Przypisanie wspolrzednej x do zmiennej xPosition
