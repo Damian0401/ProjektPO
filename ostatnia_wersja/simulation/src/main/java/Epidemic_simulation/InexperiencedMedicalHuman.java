@@ -34,10 +34,16 @@ public class InexperiencedMedicalHuman extends AMedicalObject {
         this.moveRange = moveRange;
     }
 
+    /**
+     * Metoda sprawdzajaca czy zakazony obiekt zostal pomyslnie uleczony
+     * @param infectedObject Zakazony obietu
+     * @return "true" w przypadku powodzenia, "false w przypadku niepowodzenia"
+     */
     @Override
     public boolean cureSuccessful(AInfectedObject infectedObject) {
         // Sprawdzenie czy współrzędne obiektu InfectedHuman są zbyt odległe, aby został uleczony i na tej postawie wzrócenie true lub false
         if ( Math.abs(infectedObject.getXPosition() - xPosition) < 2 && Math.abs(infectedObject.getXPosition() - yPosition) < 2) {
+            // 75% szans na uleczenie
             return RandomGenerator.getChance() < 76;
         }
         return false;
