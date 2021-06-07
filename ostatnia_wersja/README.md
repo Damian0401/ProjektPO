@@ -12,3 +12,6 @@ Lista argumentow:
 11. Ilosc epok symulacji (liczba nieujemna)
 
 Ilosc obiektow nie moze byc wieksza niz ilosc pol mapy.
+
+Przykładowe dane to przeprowadzenie symulacji:
+gradle run --args="50 50 1 10 50 200 5 20 25 10 50"

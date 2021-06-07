@@ -89,7 +89,7 @@ public class HealthyHuman extends AHealthyObject implements IMove {
 
     /**
      * Metoda zwracajaca zakres ruchu obiektu
-     * @return
+     * @return Zakres ruchu obiektu
      */
     @Override
     public int getMoveRange() {

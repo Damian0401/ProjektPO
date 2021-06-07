@@ -1,5 +1,0 @@
-Stage number;HealthyObject number;InfectedObject number;MedicalObject number;CureObject number;New recovered number;New infected number
-0;200;5;20;20;0;0
-1;198;7;20;20;0;2
-2;197;8;20;19;1;2
-3;198;7;20;19;1;0

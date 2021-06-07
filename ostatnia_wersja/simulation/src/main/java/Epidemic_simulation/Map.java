@@ -48,30 +48,44 @@ public class Map extends AMap {
      */
     private final IObjectFactory objectFactory;
 
+    /**
+     * Konstruktor z parametrami
+     * @param mapHeight Wysokosc mapy
+     * @param mapWidth Szarokosc mapy
+     * @param moveRange Zakres ruchu obiektow
+     * @param infectChance Szansa na zainfekowanie
+     * @param recoveryChance Szansa na uleczenie
+     * @param healthyNumber Poczatkowa ilosc zdrowych obiektow
+     * @param infectedNumber Poczatkowa ilosc zainfekowanych obiektow
+     * @param medicalNumber Poczatkowa ilosc lekarzy
+     * @param cureNumber Ilosc lekarstw
+     * @param scale Skalowania mapy
+     */
     public Map(int mapHeight, int mapWidth, int moveRange, int infectChance, int recoveryChance, int healthyNumber,
                int infectedNumber, int medicalNumber, int cureNumber, int scale) {
-        if((mapHeight * mapWidth) < (healthyNumber + infectedNumber + medicalNumber + cureNumber)){
-            throw new IllegalArgumentException("Ilosc obiektow nie moze wieksza niz ilosc pol mapy.");
-        }
+        // Sprawdzenie czy rozmiary mapy nie sa ujemny
         if(mapHeight < 0 || mapWidth < 0){
             throw new IllegalArgumentException("Wymiary mapy nie moga byc ujemne.");
         }
-        if(infectChance < 0){
-            throw new IllegalArgumentException("Szansa na zakazenie nie moze byc ujemna.");
+        // Sprawdzenie czy mapa jest wystarczajaca duza zeby pomiescic wszystkie obiekty
+        if((mapHeight * mapWidth) < (healthyNumber + infectedNumber + medicalNumber + cureNumber)){
+            throw new IllegalArgumentException("Ilosc obiektow nie moze wieksza niz ilosc pol mapy.");
         }
-        if(recoveryChance < 0){
-            throw new IllegalArgumentException("Szansa na uleczenie nie moze byc ujemna.");
-        }
+        // Sprawdzenie czy ilosc obiektow nie jest ujemna
         if(healthyNumber < 0 || infectedNumber < 0 || medicalNumber < 0 || cureNumber < 0){
             throw new IllegalArgumentException("Ilosc obiektow nie moze byc ujemne.");
         }
+        // Sprawdzenie czy skalowanie mapy jest wieksze od 0
         if(scale < 1){
             throw new IllegalArgumentException("Skala mapy nie moze byc mniejsza od 1");
         }
-
+        // Ustawienie koloru mapy
         this.setBackground(new Color(154, 160, 145));
+        // Ustawienie rozmiarow mapy
         setPreferredSize(new Dimension(mapWidth*scale,mapHeight*scale));
+        // Ustawienie skalowania mapy
         this.scale = scale;
+        // Utworzenie fabryki obiektow
         objectFactory = new ObjectFactory(moveRange, infectChance, recoveryChance);
         // Pętla tworząca nowe obiekty typu MedicalHuman i dodająca je do medicalObjectList
         AMedicalObject temporaryMedicalObject;
@@ -159,12 +173,15 @@ public class Map extends AMap {
         stageNumber++;
     }
 
+    /**
+     * Metoda sluzaca do prouszania obiektow symulacji
+     */
     @Override
     public void moveObjects(){
-        // Poruszenie obiektów symulacji
         int oldXPosition;
         int oldYPosition;
         boolean busyPosition;
+        // Poruszenie wszystkich lekarzy
         for(AMedicalObject medicalObject : medicalObjectList){
             oldXPosition = medicalObject.getXPosition();
             oldYPosition = medicalObject.getYPosition();
@@ -180,6 +197,7 @@ public class Map extends AMap {
                 if (cureObjectList.contains(medicalObject)) busyPosition = true;
             }while (busyPosition);
         }
+        // Poruszenie wszystkich zainfekowanych
         for(AInfectedObject infectedObject : infectedObjectList){
             oldXPosition = infectedObject.getXPosition();
             oldYPosition = infectedObject.getYPosition();
@@ -195,6 +213,7 @@ public class Map extends AMap {
                 if (cureObjectList.contains(infectedObject)) busyPosition = true;
             }while (busyPosition);
         }
+        // Poruszenie wszystkich zdrowych
         for(AHealthyObject healthyObject : healthyObjectList){
             oldXPosition = healthyObject.getXPosition();
             oldYPosition = healthyObject.getYPosition();

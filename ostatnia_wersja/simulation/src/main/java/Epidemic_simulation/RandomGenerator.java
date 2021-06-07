@@ -23,7 +23,7 @@ public class RandomGenerator{
         return random.nextInt(2 * range + 1) - range;
     }
     /**
-     * Wylosowania szansu
+     * Wylosowana szansa
      * @return Losowa liczba z zakresu 0 - 100
      */
     public static int getChance(){

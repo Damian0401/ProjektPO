@@ -3,8 +3,6 @@ package Epidemic_simulation;
 /**
  * Klasa odpowiadajaca za zapisywanie statystyk kazdej epoki symulacji
  */
-
-
 public class Statistics {
     /**
      *  Zmienna przechowujaca ilosc uleczonych obiektow w danej epoce
@@ -38,7 +36,6 @@ public class Statistics {
     /**
      * Konstruktor klasy Statistics
      */
-
     public Statistics(int newRecoveredNumber, int newInfectedNumber, int stageNumber, int infectedObjectNumber, int healthyObjectNumber, int cureObjectNumber, int medicalObjectNumber){
         this.newInfectedNumber = newInfectedNumber;
         this.newRecoveredNumber = newRecoveredNumber;

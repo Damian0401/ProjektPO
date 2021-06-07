@@ -2,13 +2,14 @@ package Epidemic_simulation;
 
 public class Main{
     public static void main(String[] args) {
+        // Sprawdzenie czy podano odpowiednia liczbe argumentow
         if (args.length != 11){
             System.out.println("Nie podano odpowiedniej liczby argumentów aby poprawnie przeprowadzić symulację.\nProgram został zatrzymany.");
             System.exit(0);
         }
-
+        // Tablica na argumenty
         int[] valueOfArgs = new int[11];
-
+        // Parsowanue argumentow na wartosci int
         try{
             for(int i = 0; i < 11; ++i){
                 valueOfArgs[i] = Integer.parseInt(args[i]);

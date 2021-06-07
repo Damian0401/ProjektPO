@@ -26,14 +26,14 @@ public class Cure extends ACureObject {
      * @param recoveryChance Szansa na uleczenie obiektu
      */
     public Cure(int xPosition, int yPosition, int recoveryChance) {
-
+        // Sprawdzenie czy wspolrzedne obiektow nie sa ujemne
         if(xPosition < 0 || yPosition < 0){
             throw new IllegalArgumentException("Wspolrzedne nie moga byc ujemne.");
         }
-        if(recoveryChance < 0){
-            throw new IllegalArgumentException("Szansa na uleczenie nie moze byc ujemna.");
+        // Sprawdzenie czy szansa na zakazenie jest liczba z zakresu 0 - 100
+        if(recoveryChance < 0 || recoveryChance > 100){
+            throw new IllegalArgumentException("Szansa na uleczenie musi byc liczba z zakresu 0 - 100.");
         }
-
         // Przypisanie do zmiennej recoveryChange szansy na zakazenie
         this.recoveryChance = recoveryChance;
         // Przypisanie do wspolrzedne xPosition wspolrzednej x przekazanej w konsturktorze
