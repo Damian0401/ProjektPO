@@ -3,7 +3,7 @@ package Epidemic_simulation;
 /**
  * Klasa reprezentujaca zdrowego czlowieka ktory posiada zwiekszona odpornosc na zakazenie
  */
-public class ImmuneHealthyHuman extends AHealthyObject implements IMove {
+public class ImmuneHealthyHuman extends AHealthyObject {
     /**
      * Wspolrzedna x obiektu
      */

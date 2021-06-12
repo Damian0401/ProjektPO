@@ -1,6 +1,6 @@
 package Epidemic_simulation;
 
-public class HealthyHuman extends AHealthyObject implements IMove {
+public class HealthyHuman extends AHealthyObject {
     /**
      * Wspolrzedna x obiektu
      */
