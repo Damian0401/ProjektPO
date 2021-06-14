@@ -2,6 +2,9 @@ package Epidemic_simulation;
 
 import Epidemic_simulation.AMedicalObject;
 
+/**
+ * Klasa reprezentujaca lekarzy
+ */
 public class MedicalHuman extends AMedicalObject {
     /**
      * Zmienna przechowujaca wspolrzedna x obiektu

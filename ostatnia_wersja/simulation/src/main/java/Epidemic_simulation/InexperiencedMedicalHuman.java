@@ -1,5 +1,8 @@
 package Epidemic_simulation;
 
+/**
+ * Klasa reprezentujaca niedoswiadczonego lekarza
+ */
 public class InexperiencedMedicalHuman extends AMedicalObject {
     /**
      * Wspolrzedna x obiektu

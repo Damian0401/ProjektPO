@@ -1,11 +1,11 @@
 package Epidemic_simulation;
 
 /**
- * Klasa przedstawiająca lekarstwo które uległo uszkodzeniu
+ * Klasa przedstawiajaca lekarstwo które uleglo uszkodzeniu
  */
 public class DefectedCure extends ACureObject {
     /**
-     * Szansa na uleczenie zakażonego
+     * Szansa na uleczenie zakazonego
      */
     private final int recoveryChance;
     /**

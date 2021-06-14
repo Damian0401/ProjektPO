@@ -1,5 +1,8 @@
 package Epidemic_simulation;
 
+/**
+ * Klasa reprezentujaca zakazonego czlowieka
+ */
 public class InfectedHuman extends AInfectedObject {
     /**
      * Wspolrzedna x obiektu

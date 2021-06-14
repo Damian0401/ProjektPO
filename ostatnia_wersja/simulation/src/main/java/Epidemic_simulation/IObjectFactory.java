@@ -1,5 +1,8 @@
 package Epidemic_simulation;
 
+/**
+ * Interfejs fabryki obiektow
+ */
 public interface IObjectFactory {
     /**
      * Metoda odpowiedzialna za tworzenie zainfekowanych obiektow

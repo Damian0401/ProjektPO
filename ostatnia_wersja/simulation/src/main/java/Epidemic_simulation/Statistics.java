@@ -34,7 +34,14 @@ public class Statistics {
     private final int medicalObjectNumber;
 
     /**
-     * Konstruktor klasy Statistics
+     * Konstruktor z parametrami
+     * @param newRecoveredNumber Ilosc nowych wyzdrowien
+     * @param newInfectedNumber Ilosc nowych zakazen
+     * @param stageNumber Numer epoki
+     * @param infectedObjectNumber Ilosc zakazonych
+     * @param healthyObjectNumber Ilosc zdowych
+     * @param cureObjectNumber Ilosc lekarstw
+     * @param medicalObjectNumber Ilosc lekarzy
      */
     public Statistics(int newRecoveredNumber, int newInfectedNumber, int stageNumber, int infectedObjectNumber, int healthyObjectNumber, int cureObjectNumber, int medicalObjectNumber){
         this.newInfectedNumber = newInfectedNumber;

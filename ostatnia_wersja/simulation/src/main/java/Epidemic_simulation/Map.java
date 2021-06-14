@@ -4,8 +4,14 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Klasa mapy
+ */
 public class Map extends AMap {
 
+    /**
+     * Skalowanie mapy
+     */
     private final int scale;
     /**
      * Lista przechowująca obiekty typu Cure

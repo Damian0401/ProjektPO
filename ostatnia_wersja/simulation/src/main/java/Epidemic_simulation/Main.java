@@ -1,6 +1,13 @@
 package Epidemic_simulation;
 
+/**
+ * Klasa main
+ */
 public class Main{
+    /**
+     * Metoda w ktorej jest tworzona symulacja
+     * @param args Wartosci poczatkowe dla symulaji
+     */
     public static void main(String[] args) {
         // Sprawdzenie czy podano odpowiednia liczbe argumentow
         if (args.length != 11){
@@ -19,7 +26,6 @@ public class Main{
             System.out.println("Nie powiodło się rzutowanie wprowadzonych argumentów na wartości int.\nProgram został zatrzymany.");
             System.exit(0);
         }
-
         try {
             // Utworzenie symulacji z zadanymi parametrami
             Epidemic epidemic = new Epidemic(valueOfArgs[0], valueOfArgs[1], valueOfArgs[2], valueOfArgs[3], valueOfArgs[4], valueOfArgs[5], valueOfArgs[6], valueOfArgs[7], valueOfArgs[8], valueOfArgs[9]);
@@ -32,6 +38,4 @@ public class Main{
             System.out.println(e.getMessage());
         }
     }
-
-
 }

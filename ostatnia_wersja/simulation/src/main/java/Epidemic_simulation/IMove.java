@@ -1,5 +1,8 @@
 package Epidemic_simulation;
 
+/**
+ * Interfejs umozliwiajacy poruszanie obiektow
+ */
 public interface IMove {
 
     /**

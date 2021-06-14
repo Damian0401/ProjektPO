@@ -26,15 +26,16 @@ public class Epidemic extends JFrame{
 
     /**
      * Konstruktor klasy Epidemic
-     * @param mapHeight Wielkość mapy
-     * @param mapWidth Szerokość mapy
-     * @param infectChance Szansa na zakażanie obiektu typu HealthyHuman przez obiekt typu InfectedHuman
+     * @param mapHeight Wielkosc mapy
+     * @param mapWidth Szerokosc mapy
+     * @param moveRange Zakres ruchu obiektow
+     * @param infectChance Szansa na zakazanie obiektu typu HealthyHuman przez obiekt typu InfectedHuman
      * @param recoveryChance Szansa na uleczenie obiektu InfectedHuman przez obiekt Cure
-     * @param healthyNumber Ilość obiektów typu HealthyHuman
-     * @param infectedNumber Ilość obiektów typu InfectedHuman
-     * @param medicalNumber Ilość obiektów typu MedicalHuman
-     * @param cureNumber Ilość obiektów typu Cure
-     * @param scale Skala obiektów na mapie
+     * @param healthyNumber Ilosc obiektow typu HealthyHuman
+     * @param infectedNumber Ilosc obiektow typu InfectedHuman
+     * @param medicalNumber Ilosc obiektow typu MedicalHuman
+     * @param cureNumber Ilosc obiektow typu Cure
+     * @param scale Skala obiektow na mapie
      */
     public Epidemic(int mapHeight, int mapWidth, int moveRange, int infectChance, int recoveryChance, int healthyNumber,
                     int infectedNumber, int medicalNumber, int cureNumber, int scale){

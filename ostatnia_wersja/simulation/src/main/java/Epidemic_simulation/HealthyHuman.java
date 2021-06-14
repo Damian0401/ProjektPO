@@ -1,5 +1,8 @@
 package Epidemic_simulation;
 
+/**
+ * Klasa reprezentujaca zdrowego czlowieka
+ */
 public class HealthyHuman extends AHealthyObject {
     /**
      * Wspolrzedna x obiektu
