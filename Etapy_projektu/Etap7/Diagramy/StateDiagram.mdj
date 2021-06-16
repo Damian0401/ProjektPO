@@ -2193,17 +2193,17 @@
 										"$ref": "AAAAAAF5PeY2t3C7YRc="
 									},
 									"font": "Arial;13;0",
-									"left": 104,
-									"top": 623,
-									"width": 145.259765625,
+									"left": 271,
+									"top": 736,
+									"width": 170.5615234375,
 									"height": 13,
-									"alpha": -4.2145667037083445,
-									"distance": 157.0636813525011,
+									"alpha": 0.2427364921974493,
+									"distance": 108.17116066678771,
 									"hostEdge": {
 										"$ref": "AAAAAAF5PeY2t3C890o="
 									},
 									"edgePosition": 1,
-									"text": "This state cannot change"
+									"text": "This state cannot be changed"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2287,17 +2287,17 @@
 										"$ref": "AAAAAAF5PeZqU3DPYAA="
 									},
 									"font": "Arial;13;0",
-									"left": 1048,
-									"top": 404,
-									"width": 145.259765625,
+									"left": 847,
+									"top": 735,
+									"width": 170.5615234375,
 									"height": 13,
-									"alpha": 4.49253727634662,
-									"distance": 366.82966074187624,
+									"alpha": -0.2362452817881313,
+									"distance": 111.08555261599052,
 									"hostEdge": {
 										"$ref": "AAAAAAF5PeZqU3DQhhg="
 									},
 									"edgePosition": 1,
-									"text": "This state cannot change"
+									"text": "This state cannot be changed"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2707,7 +2707,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF5PeY2t3C7YRc="
 									},
-									"name": "This state cannot change"
+									"name": "This state cannot be changed"
 								}
 							]
 						},
@@ -2730,7 +2730,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF5PeZqU3DPYAA="
 									},
-									"name": "This state cannot change"
+									"name": "This state cannot be changed"
 								}
 							]
 						}
